@@ -5,7 +5,9 @@ const apiKey = "35be43f322b4b2460e0f8264b77f33ef";
 const baseUrl = "https://api.themoviedb.org/3/";
 
 export const getAllList = async (resource, pageRandom) => {
-  const response = await axios.get(`${baseUrl}${resource}?api_key=${apiKey}&page=${pageRandom}`);
+  const response = await axios.get(
+    `${baseUrl}${resource}?api_key=${apiKey}&page=${pageRandom}`
+  );
   const data = await response.data.results;
   return data;
 };
