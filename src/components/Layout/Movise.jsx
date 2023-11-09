@@ -6,10 +6,10 @@ const Movies = () => {
   useEffect(() => {
     const getMovie = async () => {
       const pageRandom = ~~(Math.random() * 500 + 1)
-      let movieList = await getAllList("discover/movie", pageRandom);
-      let filterMovie = movieList.filter(movie => movie.poster_path !== null)
+      const data = await getAllList("discover/movie", pageRandom)
+      let filterMovie = data.filter(movie => movie.poster_path !== null)
       filterMovie = getRandomMovie(filterMovie, 10);
-      setMovies(movieList);
+      setMovies(filterMovie);
     };
     getMovie();
   }, []);

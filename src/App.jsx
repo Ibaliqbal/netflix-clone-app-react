@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./pages/404";
 import SearchMoviesList from "./SearchMoviesList";
 import ImageContextProvider from "./context/ImageContext";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader/Loader";
-
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Layout = lazy(() => import("././components/Layout/Layout"));
 const DetailMovie = lazy(() => import("././components/Layout/DetailMovie"));

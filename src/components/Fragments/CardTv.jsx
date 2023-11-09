@@ -19,7 +19,7 @@ function CardTv({ lists }) {
       <Link to={`/tv/${list.id}`} className="cursor-pointer group relative">
         {list.poster_path ? (
           <img
-            src={`https://image.tmdb.org/t/p/w300${list.poster_path}`}
+            src={`${import.meta.env.VITE_API_URL_IMAGE}${list.poster_path}`}
             className="group-hover:scale-105 transition-transform duration-300 ease-in-out object-cover lg:w-[500px] h-[300px] w-[200px] md:h-[345px] md:w-[250px]"
             alt="Poster"
           />

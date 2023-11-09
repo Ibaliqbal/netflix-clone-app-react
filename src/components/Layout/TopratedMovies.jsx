@@ -7,9 +7,9 @@ const TopratedMovies = () => {
 
   useEffect(() => {
     const getMovie = async () => {
-      const pageRandom = ~~(Math.random() * 105 + 1)
-      let movieList = await getAllList("movie/now_playing", pageRandom);
-      let filterMovieList= movieList.filter(movie => movie.poster_path !== null)
+      const pageRandom = ~~(Math.random() * 105 + 1);
+      const data = await getAllList("movie/now_playing", pageRandom);
+      let filterMovieList = data.filter((movie) => movie.poster_path !== null);
       filterMovieList = getRandomMovie(filterMovieList, 15);
       setMoviesTop(filterMovieList);
     };

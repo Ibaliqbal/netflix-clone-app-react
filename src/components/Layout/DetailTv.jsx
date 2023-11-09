@@ -27,7 +27,7 @@ function DetailTv() {
       <div
         className="w-full bg-cover h-[700px] hero relative"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${detailTv.backdrop_path})`,
+          backgroundImage: `url(${import.meta.env.VITE_API_URL_IMAGE_ORIGINAL}${detailTv.backdrop_path})`,
         }}
       >
         <Link
@@ -42,7 +42,7 @@ function DetailTv() {
         <div className="container">
           <div className="w-full grid lg:grid-cols-3 lg:place-items-center md:justify-items-start gap-5 pb-10">
             <img
-              src={`https://image.tmdb.org/t/p/w300${detailTv.poster_path}`}
+              src={`${import.meta.env.VITE_API_URL_IMAGE}${detailTv.poster_path}`}
               alt="Poster"
               className="-mt-[50%] relative"
             />
@@ -86,7 +86,7 @@ function DetailTv() {
                     <div key={tv.id}>
                       <Link to={`/tv/${tv.id}`}>
                         <img
-                          src={`https://image.tmdb.org/t/p/w300${tv.poster_path}`}
+                          src={`${import.meta.env.VITE_API_URL_IMAGE}${tv.poster_path}`}
                           alt=""
                           className="w-[150px] lg:w-[200px]"
                         />

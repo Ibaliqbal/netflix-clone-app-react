@@ -1,4 +1,4 @@
-import { getTvList, getRandomMovie, getAllList } from "../../api";
+import { getRandomMovie, getAllList } from "../../api";
 import { useState, useEffect } from "react";
 import CardTv from "../Fragments/CardTv";
 function TvList() {

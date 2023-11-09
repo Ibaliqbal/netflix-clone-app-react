@@ -32,7 +32,7 @@ function DetailMovie() {
       <div
         className="w-full bg-cover h-[700px] hero relative"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${detailMovie.backdrop_path})`,
+          backgroundImage: `url(${import.meta.env.VITE_API_URL_IMAGE_ORIGINAL}${detailMovie.backdrop_path})`,
         }}
       >
         <Link
@@ -47,7 +47,7 @@ function DetailMovie() {
         <div className="container">
           <div className="w-full grid lg:grid-cols-3 place-items-center gap-5 pb-10">
             <img
-              src={`https://image.tmdb.org/t/p/w300${detailMovie.poster_path}`}
+              src={`${import.meta.env.VITE_API_URL_IMAGE}${detailMovie.poster_path}`}
               alt="Poster"
               className="-mt-[50%] relative"
             />
@@ -87,7 +87,7 @@ function DetailMovie() {
                     <div key={movie.id}>
                       <Link to={`/movie/${movie.id}`}>
                         <img
-                          src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                          src={`${import.meta.env.VITE_API_URL_IMAGE}${movie.poster_path}`}
                           alt=""
                           className="w-[150px] lg:w-[200px]"
                         />

@@ -1,8 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const apiKey = "35be43f322b4b2460e0f8264b77f33ef";
-const baseUrl = "https://api.themoviedb.org/3/";
+const apiKey = import.meta.env.VITE_API_KEY;
+const baseUrl = import.meta.env.VITE_API_URL;
 
 export const getAllList = async (resource, pageRandom) => {
   const response = await axios.get(
