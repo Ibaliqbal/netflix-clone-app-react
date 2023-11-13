@@ -5,6 +5,7 @@ import SearchMoviesList from "./SearchMoviesList";
 import ImageContextProvider from "./context/ImageContext";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader/Loader";
+import TestCarousel from "./TestCarousel";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Layout = lazy(() => import("././components/Layout/Layout"));
 const DetailMovie = lazy(() => import("././components/Layout/DetailMovie"));
@@ -57,6 +58,10 @@ function App() {
         </Suspense>
       ),
     },
+    {
+      path: "/testcarousel",
+      element:<TestCarousel />
+    }
   ]);
   return (
     <ImageContextProvider>

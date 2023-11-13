@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRandomMovie, getAllList } from "../../api";
-import Card from "../Fragments/Card";
-
+import SliderMovie from "../Fragments/SliderMovie";
 const TopratedMovies = () => {
   const [moviesTop, setMoviesTop] = useState([]);
 
@@ -21,8 +20,10 @@ const TopratedMovies = () => {
         <h1 className="text-white mix-blend-difference font-bold text-2xl mb-3">
           Now Playing Movies
         </h1>
-        <div className="w-full grid lg:grid-cols-5 gap-x-2 place-items-center md:grid-cols-3 grid-cols-2 leading-normal">
-          <Card lists={moviesTop} />
+        {/* <Carousel show={3.5} slide={2} transition={0.5}>
+        </Carousel> */}
+        <div className="w-full  leading-normal">
+          <SliderMovie movies={moviesTop} />
         </div>
       </div>
     </div>

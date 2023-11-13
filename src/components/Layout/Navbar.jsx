@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Navbar = () => {
   const [input, setInput] = useState("");
   const [navbar, setNavbar] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const goToSearchMovies = () => {
     if (!input || input.trim() == "") return;
@@ -37,27 +39,59 @@ const Navbar = () => {
             >
               <ul className="block lg:flex">
                 <li className="group">
-                  <NavLink to={`/`} className="mix-blend-difference text-white py-2 mx-8 flex">
+                  <NavLink
+                    to={`/`}
+                    className="mix-blend-difference text-white py-2 mx-8 flex"
+                  >
                     Home
                   </NavLink>
                 </li>
-                {/* <li className="group">
-                  <NavLink to={`/`} className="mix-blend-difference text-white py-2 mx-8 flex">
-                    Search
-                  </NavLink>
-                </li> */}
                 <li className="group">
-                  <NavLink to={`/${"popular"}`} className="mix-blend-difference text-white py-2 mx-8 flex">
+                  <p
+                    to={`/`}
+                    className="mix-blend-difference cursor-pointer text-white py-2 mx-8 flex items-center gap-1"
+                  >
+                    Search{" "}
+                    <span>
+                      {!isOpen ? (
+                        <IoIosArrowUp
+                          onClick={() => setIsOpen((state) => !state)}
+                        />
+                      ) : (
+                        <IoIosArrowDown
+                          onClick={() => setIsOpen((state) => !state)}
+                        />
+                      )}
+                    </span>
+                  </p>
+                  {isOpen ? (
+                    <div className="flex flex-col items-center absolute pb-4 gap-2 text-white mix-blend-difference">
+                      <NavLink to={`/${"toprated"}`}>Search Movies</NavLink>
+                      <NavLink to={`/${"toprated"}`}>Search Tv List</NavLink>
+                    </div>
+                  ) : null}
+                </li>
+                <li className="group">
+                  <NavLink
+                    to={`/${"popular"}`}
+                    className="mix-blend-difference text-white py-2 mx-8 flex"
+                  >
                     Popular
                   </NavLink>
                 </li>
                 <li className="group">
-                  <NavLink to={`/${"top_rated"}`} className="mix-blend-difference text-white py-2 mx-8 flex">
+                  <NavLink
+                    to={`/${"top_rated"}`}
+                    className="mix-blend-difference text-white py-2 mx-8 flex"
+                  >
                     Top Rated
                   </NavLink>
                 </li>
                 <li className="group">
-                  <NavLink to={`/${"trending"}`} className="mix-blend-difference text-white py-2 mx-8 flex">
+                  <NavLink
+                    to={`/${"trending"}`}
+                    className="mix-blend-difference text-white py-2 mx-8 flex"
+                  >
                     Trending
                   </NavLink>
                 </li>

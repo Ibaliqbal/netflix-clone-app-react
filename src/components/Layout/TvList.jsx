@@ -1,6 +1,7 @@
 import { getRandomMovie, getAllList } from "../../api";
 import { useState, useEffect } from "react";
 import CardTv from "../Fragments/CardTv";
+import SliderTv from "../Fragments/SliderTvList";
 function TvList() {
   const [listTv, setListTv] = useState([]);
   useEffect(() => {
@@ -19,8 +20,8 @@ function TvList() {
         <h1 className="text-white font-bold text-2xl mb-3">
           Recomandation Tv List
         </h1>
-        <div className="w-full grid lg:grid-cols-5 place-items-center gap-x-2 md:grid-cols-3 grid-cols-2 leading-normal">
-          <CardTv lists={listTv} />
+        <div className="w-full leading-normal">
+          <SliderTv tvList={listTv} />
         </div>
       </div>
     </div>

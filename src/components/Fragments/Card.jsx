@@ -4,6 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { SwiperSlide } from "swiper/react";
 function Card({ lists }) {
   useEffect(() => {
     AOS.init({
