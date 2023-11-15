@@ -39,12 +39,12 @@ function Layout() {
     }
   }, [keyword]);
   return (
-    <>
+    <main>
       <div>
         <Navbar />
       </div>
       <ListLayout movies={movies} tvList={tvList} />
-    </>
+    </main>
   );
 }
 

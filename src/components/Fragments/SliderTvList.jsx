@@ -12,6 +12,20 @@ function SliderTv({ tvList }) {
       navigation
       pagination={{ clickable: true }}
       modules={[Navigation, Pagination, A11y]}
+      breakpoints={{
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 5,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 5,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 10,
+        },
+      }}
     >
       {tvList.map((movie) => (
         <SwiperSlide
@@ -26,7 +40,7 @@ function SliderTv({ tvList }) {
             />
           </Link>
           <div className="text-white mt-2 ml-3 leading-relaxed">
-            <h1 className="font-bold lg:text-xl text-sm">
+            <h1 className="font-bold lg:text-xl text-sm h-[50px]">
               {movie.name.slice(0, 15)}...
             </h1>
             <p className="text-sm font-semibold lg:text-md h-[60px]">

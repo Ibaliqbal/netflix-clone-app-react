@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./pages/404";
-import SearchMoviesList from "./SearchMoviesList";
 import ImageContextProvider from "./context/ImageContext";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader/Loader";
-import TestCarousel from "./TestCarousel";
+import TvSearch from "./pages/TvSearch";
+const MoviesSearch = lazy(() => import("./pages/MoviesSearch"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Layout = lazy(() => import("././components/Layout/Layout"));
 const DetailMovie = lazy(() => import("././components/Layout/DetailMovie"));
@@ -24,15 +24,6 @@ function App() {
         </Suspense>
       ),
       errorElement: <Error />,
-    },
-    {
-      path: "/search/:search",
-      element: (
-        <SearchMoviesList
-          searchMovies={searchMovies}
-          setSearchMovies={setSearchMovies}
-        />
-      ),
     },
     {
       path: "/:keyword",
@@ -59,9 +50,21 @@ function App() {
       ),
     },
     {
-      path: "/testcarousel",
-      element:<TestCarousel />
-    }
+      path: "/movies",
+      element: (
+        <Suspense fallback={<Loader />}>
+          <MoviesSearch />
+        </Suspense>
+      ),
+    },
+    {
+      path: "/tv",
+      element: (
+        <Suspense fallback={<Loader />}>
+          <TvSearch />
+        </Suspense>
+      ),
+    },
   ]);
   return (
     <ImageContextProvider>

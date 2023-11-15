@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getRandomMovie, getAllList } from "../../api";
 import SliderMovie from "../Fragments/SliderMovie";
+import AOS from "aos"
+import "aos/dist/aos.css";
 const TopratedMovies = () => {
   const [moviesTop, setMoviesTop] = useState([]);
 
@@ -13,15 +15,16 @@ const TopratedMovies = () => {
       setMoviesTop(filterMovieList);
     };
     getMovie();
+    AOS.init({
+      duration: 2000
+    })
   }, []);
   return (
-    <div className="w-full mt-4 relative">
+    <div className="w-full mt-4 relative" data-aos="fade-up">
       <div className="container">
         <h1 className="text-white mix-blend-difference font-bold text-2xl mb-3">
           Now Playing Movies
         </h1>
-        {/* <Carousel show={3.5} slide={2} transition={0.5}>
-        </Carousel> */}
         <div className="w-full  leading-normal">
           <SliderMovie movies={moviesTop} />
         </div>

@@ -1,7 +1,8 @@
 import { getRandomMovie, getAllList } from "../../api";
 import { useState, useEffect } from "react";
-import CardTv from "../Fragments/CardTv";
 import SliderTv from "../Fragments/SliderTvList";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function TvList() {
   const [listTv, setListTv] = useState([]);
   useEffect(() => {
@@ -13,9 +14,12 @@ function TvList() {
       setListTv(filterData);
     };
     getTvLists();
+    AOS.init({
+      duration: 2000,
+    });
   }, []);
   return (
-    <div className="w-full">
+    <div className="w-full" data-aos="fade-up">
       <div className="container">
         <h1 className="text-white font-bold text-2xl mb-3">
           Recomandation Tv List

@@ -18,7 +18,6 @@ function HomePage({ searchMovies, setSearchMovies }) {
       const poster = data.results.filter(
         (movie, index) => index === getRandomIndex
       );
-      console.log(poster);
       setImage(poster);
     };
     if (!fetchedRef.current) {
@@ -27,12 +26,12 @@ function HomePage({ searchMovies, setSearchMovies }) {
     }
   }, []);
   return (
-    <>
+    <main>
       <HeroSection searchMovies={searchMovies}>
         <Navbar setSearchMovies={setSearchMovies} />
       </HeroSection>
       <AllList />
-    </>
+    </main>
   );
 }
 

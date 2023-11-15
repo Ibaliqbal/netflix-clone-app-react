@@ -30,7 +30,7 @@ function CardTv({ lists }) {
         )}
       </Link>
       <div className="text-white mt-2 ml-3 leading-relaxed">
-        <h1 className="font-bold lg:text-xl text-sm">
+        <h1 className="font-bold lg:text-xl text-sm h-[50px]">
           {list.name.slice(0, 15)}...
         </h1>
         <p className="text-sm font-semibold lg:text-md h-[60px]">

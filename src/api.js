@@ -84,3 +84,11 @@ export const getVideos = async (series, id) => {
     });
   }
 };
+
+export const getSearchLists = async (endpoint, query) => {
+  const response = await axios.get(
+    `${baseUrl}${endpoint}?api_key=${apiKey}&query=${query}`
+  );
+  const result = await response.data.results;
+  return result
+};

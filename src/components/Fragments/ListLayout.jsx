@@ -2,7 +2,7 @@ import Card from "../Fragments/Card";
 import CardTv from "../Fragments/CardTv";
 function ListLayout({ movies, tvList }) {
   return (
-    <div className="text-white">
+    <section className="text-white">
       <div className="w-full mt-24">
         <div className="container">
           <h1 className="text-white font-bold text-2xl mb-3">
@@ -23,7 +23,7 @@ function ListLayout({ movies, tvList }) {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
