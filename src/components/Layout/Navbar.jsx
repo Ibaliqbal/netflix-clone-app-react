@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoSearchOutline } from "react-icons/io5";
 
 const Navbar = ({ setSearchParams, searchRef }) => {
   const [navbar, setNavbar] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = ({ setSearchParams, searchRef }) => {
             <nav className="text-white">
               <form
                 action=""
-                className="flex gap-2"
+                className="flex bg-white rounded-full px-3 lg:w-[300px] w-[200px] py-2"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const encodeQuery = encodeURIComponent(e.target.search.value);
@@ -41,7 +42,7 @@ const Navbar = ({ setSearchParams, searchRef }) => {
               >
                 <input
                   type="text"
-                  className="text-black px-2 py-2"
+                  className="text-black lg:w-5/6 w-4/5 px-1 py-1 rounded-full focus:outline-none"
                   name="search"
                   placeholder={
                     location.pathname == "/movies"
@@ -50,8 +51,8 @@ const Navbar = ({ setSearchParams, searchRef }) => {
                   }
                   ref={searchRef}
                 />
-                <button type="submit" className="bg-gray-500 px-3 rounded-md">
-                  Search
+                <button type="submit" className="text-black lg:w-1/6 w-1/5 px-3">
+                  <IoSearchOutline />
                 </button>
               </form>
             </nav>
@@ -70,7 +71,7 @@ const Navbar = ({ setSearchParams, searchRef }) => {
                   navbar ? "" : "hidden"
                 } absolute py-5 bg-black shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none`}
               >
-                <ul className="block lg:flex relative">
+                <ul className="block lg:flex">
                   <li className="group">
                     <NavLink
                       to={`/`}
@@ -80,7 +81,7 @@ const Navbar = ({ setSearchParams, searchRef }) => {
                     </NavLink>
                   </li>
                   <li
-                    className="group"
+                    className="group relative"
                     onClick={() => setIsOpen((state) => !state)}
                   >
                     <p
@@ -92,14 +93,12 @@ const Navbar = ({ setSearchParams, searchRef }) => {
                         {!isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
                       </span>
                     </p>
-                    {isOpen ? (
-                      <section className="flex flex-col px-8 lg:items-center lg:absolute pb-4 pt-2 gap-2 text-white mix-blend-difference">
-                        <NavLink to={`/${"movies"}`}>Search Movies</NavLink>
-                        <NavLink to={`/${"tv"}`}>Search Tv List</NavLink>
-                      </section>
-                    ) : null}
+                    <section className={`flex flex-col transition-all duration-300 ease-liniear ${isOpen ? "top-full" : "top-0 -z-50 opacity-0"} shadow-lg px-8 lg:items-center absolute pb-4 pt-2 gap-2 text-white mix-blend-difference`}>
+                      <NavLink to={`/${"movies"}`}>Search Movies</NavLink>
+                      <NavLink to={`/${"tv"}`}>Search Tv List</NavLink>
+                    </section>
                   </li>
-                  <li className="group">
+                  <li className={`group lg:mt-0 ${isOpen ? "mt-16": null} transition-all duration-300 ease-linear`}>
                     <NavLink
                       to={`/${"popular"}`}
                       className="mix-blend-difference text-white py-2 mx-8 flex"

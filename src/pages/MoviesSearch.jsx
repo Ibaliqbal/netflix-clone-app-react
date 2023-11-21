@@ -3,6 +3,7 @@ import Navbar from "../components/Layout/Navbar";
 import { getSearchLists } from "../api";
 import { useEffect, useState, useRef } from "react";
 import Card from "../components/Fragments/Card";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 function MoviesSearch() {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchName = decodeURIComponent(searchParams.get("search")) || " ";
@@ -24,7 +25,8 @@ function MoviesSearch() {
       <Navbar setSearchParams={setSearchParams} searchRef={searchRef} />
       <main className="w-full">
         <div className="container">
-          <Link to={"/"} className="text-white font-bold text-2xl">
+          <Link to={"/"} className="text-white font-bold text-2xl inline-flex items-center gap-2">
+            <BsArrowLeftCircleFill className="text-xl"/>
             Back
           </Link>
             <div className="w-full mt-3 grid lg:grid-cols-5 place-items-center gap-x-2 md:grid-cols-3 grid-cols-2 leading-normal">
