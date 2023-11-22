@@ -2,7 +2,7 @@ import { getSearchLists } from "../api";
 import { useEffect, useState, useRef } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Navbar from "../components/Layout/Navbar";
-import CardTv from "../components/Fragments/CardTv";
+import CardTv from "../components/Elements/CardTvLists/CardTv";
 function TvSearch() {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchName = decodeURIComponent(searchParams.get("search")) || " ";
@@ -28,7 +28,7 @@ function TvSearch() {
             Back
           </Link>
           <div className="w-full mt-3 grid lg:grid-cols-5 place-items-center gap-x-2 md:grid-cols-3 grid-cols-2 leading-normal">
-            {tvSearch.length > 0 ? <CardTv lists={tvSearch} /> : <p className="text-white text-center">Tv List Not Found</p>}
+            {tvSearch.length > 0 ? <CardTv api={tvSearch} /> : <p className="text-white text-center">Tv List Not Found</p>}
           </div>
         </div>
       </main>

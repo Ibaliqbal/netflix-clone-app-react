@@ -7,7 +7,7 @@ import Loader from "./components/Loader/Loader";
 import TvSearch from "./pages/TvSearch";
 const MoviesSearch = lazy(() => import("./pages/MoviesSearch"));
 const HomePage = lazy(() => import("./pages/HomePage"));
-const Layout = lazy(() => import("././components/Layout/Layout"));
+const SelectedList = lazy(() => import("./pages/SelectedList"))
 const DetailMovie = lazy(() => import("././components/Layout/DetailMovie"));
 const DetailTv = lazy(() => import("././components/Layout/DetailTv"));
 function App() {
@@ -29,7 +29,7 @@ function App() {
       path: "/:keyword",
       element: (
         <Suspense fallback={<Loader />}>
-          <Layout />
+          <SelectedList />
         </Suspense>
       ),
     },

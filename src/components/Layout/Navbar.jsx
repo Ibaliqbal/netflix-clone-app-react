@@ -14,7 +14,7 @@ const Navbar = ({ setSearchParams, searchRef }) => {
         location.pathname == "/movies" || location.pathname == "/tv"
           ? ""
           : "absolute"
-      } top-0 left-0 w-full flex items-center z-10`}
+      } top-0 left-0 w-full flex items-center z-10 shadow-lg`}
     >
       <section className="container">
         <div className="flex items-center justify-between relative">
@@ -90,7 +90,7 @@ const Navbar = ({ setSearchParams, searchRef }) => {
                     >
                       Search{" "}
                       <span>
-                        {!isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        <IoIosArrowUp className={`${isOpen ? "rotate-180" : null} transition-transform duration-300 ease-linear`} />
                       </span>
                     </p>
                     <section className={`flex flex-col transition-all duration-300 ease-liniear ${isOpen ? "top-full" : "top-0 -z-50 opacity-0"} shadow-lg px-8 lg:items-center absolute pb-4 pt-2 gap-2 text-white mix-blend-difference`}>

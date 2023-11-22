@@ -2,7 +2,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import Navbar from "../components/Layout/Navbar";
 import { getSearchLists } from "../api";
 import { useEffect, useState, useRef } from "react";
-import Card from "../components/Fragments/Card";
+import Card from "../components/Elements/CardMovies/Card";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 function MoviesSearch() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,7 +30,7 @@ function MoviesSearch() {
             Back
           </Link>
             <div className="w-full mt-3 grid lg:grid-cols-5 place-items-center gap-x-2 md:grid-cols-3 grid-cols-2 leading-normal">
-              {moviesSearch.length > 0 ? <Card lists={moviesSearch} /> : <p className="text-white font-bold text-xl">Movie Not Found</p>}
+              {moviesSearch.length > 0 ? <Card api={moviesSearch} /> : <p className="text-white font-bold text-xl">Movie Not Found</p>}
             </div>
         </div>
       </main>

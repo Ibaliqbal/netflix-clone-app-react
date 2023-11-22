@@ -3,6 +3,8 @@ import Navbar from "../components/Layout/Navbar";
 import { useEffect, useContext, useRef } from "react";
 import { ImageContext } from "../context/ImageContext";
 import AllList from "../components/Layout/AllList";
+import { NavLink } from "react-router-dom";
+import Footer from "../components/Layout/Footer";
 function HomePage({ searchMovies, setSearchMovies }) {
   const { image, setImage } = useContext(ImageContext);
   // const [fetched, setFetched] = useState(false)
@@ -26,12 +28,15 @@ function HomePage({ searchMovies, setSearchMovies }) {
     }
   }, []);
   return (
-    <main>
+    <section>
       <HeroSection searchMovies={searchMovies}>
         <Navbar setSearchMovies={setSearchMovies} />
       </HeroSection>
-      <AllList />
-    </main>
+      <main>
+        <AllList />
+      </main>
+      <Footer />
+    </section>
   );
 }
 

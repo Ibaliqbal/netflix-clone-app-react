@@ -4,10 +4,10 @@ import {
   getMoviesAndTvLists,
   getRandomMovie,
   getMoviesAndTvListsTrending,
-} from "../../api";
-import Navbar from "./Navbar";
-import ListLayout from "../Fragments/ListLayout";
-function Layout() {
+} from "../api";
+import PageLayout from "../components/Layout/PageLayout";
+import SelectedLayout from "../components/Layout/SelectedLayout";
+function SelectedList() {
   const { keyword } = useParams();
   const [tvList, setTvList] = useState([]);
   const [movies, setMovies] = useState([]);
@@ -39,13 +39,10 @@ function Layout() {
     }
   }, [keyword]);
   return (
-    <main>
-      <div>
-        <Navbar />
-      </div>
-      <ListLayout movies={movies} tvList={tvList} />
-    </main>
+    <PageLayout>
+      <SelectedLayout movies={movies} tvList={tvList} />
+    </PageLayout>
   );
 }
 
-export default Layout;
+export default SelectedList;

@@ -1,18 +1,17 @@
-import { Link } from "react-router-dom";
-import { BsPeopleFill } from "react-icons/bs";
-import { AiFillStar } from "react-icons/ai";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import { useEffect } from "react";
-function CardTv({ lists }) {
+import { AiFillStar } from "react-icons/ai";
+import { BsPeopleFill } from "react-icons/bs";
+import "aos/dist/aos.css"
+import { Link } from "react-router-dom";
+function CardListTv({ list }) {
   useEffect(() => {
     AOS.init({
-      duration: 2000
-    })
-  }, [])
-  return lists.map((list) => (
+      duration: 2000,
+    });
+  }, []);
+  return (
     <div
-      key={list.id}
       className="md:max-w-sm flex flex-col gap-3 border-2 pb-4 border-white mb-4 overflow-hidden"
       data-aos="fade-up"
     >
@@ -31,7 +30,7 @@ function CardTv({ lists }) {
       </Link>
       <div className="text-white mt-2 ml-3 leading-relaxed">
         <h1 className="font-bold lg:text-xl text-sm h-[50px]">
-          {list.name.slice(0, 15)}...
+          {list.name.slice(0, 45)}...
         </h1>
         <p className="text-sm font-semibold lg:text-md h-[60px]">
           {list.overview.slice(0, 50)}...
@@ -48,7 +47,7 @@ function CardTv({ lists }) {
         </div>
       </div>
     </div>
-  ));
+  );
 }
 
-export default CardTv;
+export default CardListTv;
